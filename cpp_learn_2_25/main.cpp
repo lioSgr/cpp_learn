@@ -1,5 +1,7 @@
 /*
-
+友元
+    关键子 friend
+    特殊访问private
 */
 
 #include <iostream>
@@ -7,15 +9,35 @@
 
 using namespace std;
 
-class Person
+class Building
 {
+    // 关键子friend
+    friend void goodGay(Building *building);
     public:
-        ;
+        Building()
+        {
+            m_sittingRoom = "客厅";
+            m_bedRoom = "卧室";
+        }
+    public:
+        string m_sittingRoom;
+    private:
+        string m_bedRoom;
 };
+
+// 全局函数
+void goodGay(Building *building)
+{
+    cout << "好基友的全局函数正在访问 :" << building->m_sittingRoom << endl;
+
+    cout << "好基友的全局函数正在访问 :" << building->m_bedRoom << endl;
+}
+
 
 void test01()
 {
-    ;
+    Building b;
+    goodGay(&b);
 }
 
 void test02()
