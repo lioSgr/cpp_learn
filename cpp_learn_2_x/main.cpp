@@ -7,24 +7,25 @@
 
 using namespace std;
 
-class Person
-{
+class classa{
     public:
-        ;
+    private:
 };
 
-void test01()
-{
+class classb{
+    public:
+    private:
+};
+
+void test01(){
     ;
 }
 
-void test02()
-{
+void test02(){
     ;
 }
 
-int main()
-{
+int main(){
     test01();
     test02();
     return 0;
