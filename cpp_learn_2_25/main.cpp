@@ -2,6 +2,8 @@
 友元
     关键子 friend
     特殊访问private
+
+    全局函数做友元
 */
 
 #include <iostream>
