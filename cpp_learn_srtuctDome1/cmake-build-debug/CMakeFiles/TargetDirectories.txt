@@ -1,0 +1,3 @@
+/home/lio/CLionProjects/cpp_learn_srtuctDome1/cmake-build-debug/CMakeFiles/cpp_learn_srtuctDome1.dir
+/home/lio/CLionProjects/cpp_learn_srtuctDome1/cmake-build-debug/CMakeFiles/edit_cache.dir
+/home/lio/CLionProjects/cpp_learn_srtuctDome1/cmake-build-debug/CMakeFiles/rebuild_cache.dir

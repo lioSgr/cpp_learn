@@ -1,0 +1,7 @@
+# ninja log v5
+0	112	1659535963741808550	CMakeFiles/error_point_circle.dir/point.cpp.o	306490cedb947408
+1	112	1659535963741808550	CMakeFiles/error_point_circle.dir/circle.cpp.o	ff26229c0d883767
+0	113	1659535963741808550	CMakeFiles/error_point_circle.dir/main.cpp.o	9ba62fa3ddae97e7
+113	146	1659535963777807744	error_point_circle	8f21cab0716e3ae1
+1	107	1659535977869499780	CMakeFiles/error_point_circle.dir/main.cpp.o	9ba62fa3ddae97e7
+107	140	1659535977901499096	error_point_circle	8f21cab0716e3ae1

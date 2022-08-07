@@ -1,0 +1,3 @@
+/home/lio/CLionProjects/c_pp_learn4/cmake-build-debug/CMakeFiles/c_pp_learn4.dir
+/home/lio/CLionProjects/c_pp_learn4/cmake-build-debug/CMakeFiles/edit_cache.dir
+/home/lio/CLionProjects/c_pp_learn4/cmake-build-debug/CMakeFiles/rebuild_cache.dir

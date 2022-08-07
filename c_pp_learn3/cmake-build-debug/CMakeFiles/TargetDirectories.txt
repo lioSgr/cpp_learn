@@ -1,0 +1,3 @@
+/home/lio/CLionProjects/c_pp_learn3/cmake-build-debug/CMakeFiles/c_pp_learn3.dir
+/home/lio/CLionProjects/c_pp_learn3/cmake-build-debug/CMakeFiles/edit_cache.dir
+/home/lio/CLionProjects/c_pp_learn3/cmake-build-debug/CMakeFiles/rebuild_cache.dir
