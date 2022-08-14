@@ -26,43 +26,36 @@
 //      语法：
 //          class 子类 ： 继承方式 父类1，父类2
 
+// 菱形继承
+//      概念：两个派生类继承了基类  第三个类继承了两个派生类
+//      核心：继承之前加上virtual关键字
+
 #include <iostream>
 #include <string>
 using namespace std;
 
-class Base1{
+class Animal{
     public:
-        Base1(){
-            m_a = 100;
-        }
-        int m_a;
+        int m_age;
 };
-class Base2{
-    public:
-        Base2(){
-            m_a = 200;
-        }
-        int m_a;
+// 利用虚继承 解决菱形继承的问题
+// 继承之前加上virtual关键字
+class Sheep : virtual public Animal{
+};
+class Tuo : virtual public Animal{
 };
 
-class Son : public Base1, Base2{
-    public:
-        Son(){
-            m_c = 300;
-            m_d = 400;
-        }
-        int m_c;
-        int m_d;
+class SheepTuo : public Sheep, Tuo{
 };
 
 
 // 同名静态成员属性
 void test01(){
-    Son s;
-    cout << sizeof(Son) << endl;
-    // 父类中出现同名成员 添加作用域访问
-    cout << s.Base1::m_a << endl;
-    cout << s.Base2::m_a << endl;
+    SheepTuo st;
+    // 菱形继承 两个父类拥有两个相同数据 需要加以作用域区分
+    st.Sheep::m_age = 18;
+    st.Tuo::m_age = 28;
+    // 这个数据只需一份 菱形继承导致数据两个 造成资源浪费
 }
 
 // 同名成员函数
