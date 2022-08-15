@@ -58,48 +58,96 @@
 #include <string>
 using namespace std;
 
-class Animal{
+// 多态案例组装电脑
+// 抽象CPU类
+class Cpu{
     public:
-        Animal(){
-            // animal 构造函数
+        virtual void calculate() = 0;
+};
+// 抽象显卡类
+class VideoCard{
+    public:
+        virtual void display() = 0;
+};
+// 抽象内存条类
+class Memory{
+    public:
+        virtual void storage() = 0;
+};
+// 电脑类
+class Computer{
+    public:
+        Computer(Cpu * cpu, VideoCard * vc, Memory * mem){
+            m_cpu = cpu;
+            m_vc = vc;
+            m_mem = mem;
         }
-        // 虚析构
-        // ~Animal(){
-        //     // animal析构函数
-        // }
-        virtual ~Animal() = 0;
-        // 纯虚函数
-        virtual void speak() = 0;
+
+        void work(){
+            m_cpu->calculate();
+            m_vc->display();
+            m_mem->storage();
+        }
+    private:
+        Cpu *m_cpu;
+        VideoCard *m_vc;
+        Memory *m_mem;
 };
 
-// 纯虚析构
-Animal :: ~Animal(){
-    ;
-}
-
-class Cat : public Animal(){
+class IntelCpu : public Cpu{
     public:
-        Cat(){string name}{
-            m_name = new string(name);
+        virtual void calculate(){
+            cout << "intel cpu 开始计算了" << endl;
         }
-        // 利用虚析构可以解决 父类指针释放子类对象时不干净的问题
-        virtual ~Cat(){
-            if(m_name != NULL){
-                delete m_name;
-            }
+};
+
+class IntelVideoCard : public VideoCard{
+    public:
+        virtual void display(){
+            cout << "intel Video 开始显示了" << endl;
         }
-        // 重写纯虚函数
-        virtual void speak(){
-            cout << *m_name << "cat speak" << endl;
-        };
-        string *m_name;
+};
+
+class IntelMemory : public Memory{
+    public:
+        virtual void storage(){
+            cout << "intel memory 开始存储了" << endl;
+        }
+};
+
+class LenovoCpu : public Cpu{
+    public:
+        virtual void calculate(){
+            cout << "Lenovo cpu 开始计算了" << endl;
+        }
+};
+
+class LenovoVideoCard : public VideoCard{
+    public:
+        virtual void display(){
+            cout << "Lenovo Video 开始显示了" << endl;
+        }
+};
+
+class LenovoMemory : public Memory{
+    public:
+        virtual void storage(){
+            cout << "Lenovo memory 开始存储了" << endl;
+        }
 };
 
 void test01(){
-    Animal * animal = new Cat;
-    animal->speak();
-    // 父类指针不会调用子类中析构函数 导致如果子类中存在堆区属性 造成内存泄漏的情况
-    delete animal;
+    Cpu * interCpu = new IntelCpu;
+    VideoCard * intelVideoCard = new IntelVideoCard;
+    Memory * intelMemory = new IntelMemory;
+    
+    Computer * computer1 = Computer(IntelCpu, intelVideoCard, intelMemory);
+    computer1->work();
+    delete computer1;
+
+    Computer * computer2 = Computer(new LenovoCpu, new LenvoVideoCard, new LenvoMemory);
+    computer1->work();
+    delete computer2;
 }
 
 int main(){
